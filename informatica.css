@@ -784,5 +784,13 @@ RESPONSIVO
 .card-servico button:hover {
     background: #0056b3;
 }
-
+#carrinho,
+.carrinho,
+.carrinho-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    width: 95%;
+    background: black;
+    color: white;
+}
 

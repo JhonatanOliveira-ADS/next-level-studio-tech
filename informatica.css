@@ -785,44 +785,4 @@ RESPONSIVO
     background: #0056b3;
 }
 
-@media (max-width: 768px) {
 
-    .usuario {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .produtos {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .produto-catalogo {
-        width: 90%;
-        margin: auto;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-}
-@media (max-width: 768px) {
-
-    .carrinho {
-        width: 95%;
-        max-height: 50vh;
-        overflow-y: auto;
-        margin: auto;
-    }
-
-}

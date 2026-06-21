@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Next Level Studio Tech</title>
+    <link rel="stylesheet" href="informatica.css">
+</head>
+
+<body>
+
+    <!-- 🛒 CARRINHO -->
+    <div class="painel-carrinho" id="painelCarrinho">
+        <h2>🛒 Seu Carrinho</h2>
+        <ul id="listaCarrinho"></ul>
+        <button onclick="limparCarrinho()">Limpar Carrinho</button>
+
+        <button onclick="finalizarWhats()"
+            style="margin-top:10px;background:green;color:white;padding:10px;width:100%;">
+            Finalizar no WhatsApp
+        </button>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="carrinho-info">
+            🛒 Carrinho: <span id="contador">0</span>
+        </div>
+
+        <div class="top-bar">
+            Next Level Studio Tech
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="produtos.html" class="ativo">Produtos</a>
+
+            <a href="Servicos.html">Serviços</a>
+            <a href="carrinho.HTML">Carrinho</a>
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main>
+
+        <section class="produtos">
+
+            <h1>Nossos Produtos</h1>
+            <p>Arraste para o lado ou use as setas</p>
+
+            <div class="carrossel" id="carrossel">
+
+                <!-- 1 -->
+                <div class="produto-card">
+                    <img src="imagens/pc.2.jpg">
+                    <h3>Computador Gamer</h3>
+                    <p>Alta performance para jogos.</p>
+                    <span>R$ 3500,00</span>
+                    <button onclick="adicionar('Computador Gamer', 3500, 'imagens/pc.2.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 2 -->
+                <div class="produto-card">
+                    <img src="imagens/notebook.alien.jpg">
+                    <h3>Notebook i7</h3>
+                    <p>Leve e potente para estudos.</p>
+                    <span>R$ 4200,00</span>
+                    <button onclick="adicionar('Notebook i7', 4200, 'imagens/notebook.alien.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 3 -->
+                <div class="produto-card">
+                    <img src="imagens/mouse.logitech.jpg">
+                    <h3>Mouse Gamer</h3>
+                    <p>Precisão e conforto.</p>
+                    <span>R$ 120,00</span>
+                    <button onclick="adicionar('Mouse Gamer', 120, 'imagens/mouse.logitech.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 4 -->
+                <div class="produto-card">
+                    <img src="imagens/pc.basic.jpg">
+                    <h3>PC Ryzen 5 Gamer</h3>
+                    <p>Equilíbrio perfeito para jogos.</p>
+                    <span>R$ 3200,00</span>
+                    <button onclick="adicionar('PC Ryzen 5 Gamer', 3200, 'imagens/pc_ryzen.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 5 -->
+                <div class="produto-card">
+                    <img src="imagens/Pc.jpg">
+                    <h3>PC Intel i7 Ultra</h3>
+                    <p>Performance avançada para multitarefas.</p>
+                    <span>R$ 4800,00</span>
+                    <button onclick="adicionar('PC Intel i7 Ultra', 4800, 'imagens/pc_intel_i7.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 6 -->
+                <div class="produto-card">
+                    <img src="imagens/rx.4070.jpg">
+                    <h3>RTX 4070</h3>
+                    <p>Gráficos ultra realistas.</p>
+                    <span>R$ 4500,00</span>
+                    <button onclick="adicionar('RTX 4070', 4500, 'imagens/rtx4070.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 7 -->
+                <div class="produto-card">
+                    <img src="imagens/memoria.ram.jpg">
+                    <h3>Memória RAM 32GB</h3>
+                    <p>Alta velocidade para games e edição.</p>
+                    <span>R$ 900,00</span>
+                    <button onclick="adicionar('RAM 32GB', 900, 'imagens/ram_32gb.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 8 -->
+                <div class="produto-card">
+                    <img src="imagens/gabinete.jpg">
+                    <h3>Gabinete RGB Premium</h3>
+                    <p>Estilo gamer com iluminação RGB.</p>
+                    <span>R$ 600,00</span>
+                    <button onclick="adicionar('Gabinete RGB', 600, 'imagens/gabinete_rgb.jpg')">
+                        Comprar
+                    </button>
+                </div>
+                <!-- 9 -->
+                <div class="produto-card">
+                    <img src="imagens/tecladomecanico.jpg">
+                    <h3>Teclado Mecânico RGB</h3>
+                    <p>Switch mecânico com iluminação RGB.</p>
+                    <span>R$ 299,90</span>
+                    <button onclick="adicionar('Teclado Mecânico RGB', 299.90, 'tecladomecanico.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 10 -->
+                <div class="produto-card">
+                    <img src="imagens/monitor_game.jpg">
+                    <h3>Monitor Gamer</h3>
+                    <p>Alta taxa de atualização para jogos.</p>
+                    <span>R$ 1.299,90</span>
+                    <button onclick="adicionar('Monitor Gamer', 1299.90, 'monitor_game.jpg')">
+                        Comprar
+                    </button>
+                </div>
+
+                <!-- 11 -->
+                <div class="produto-card">
+                    <img src="imagens/pc.branco.jpg">
+                    <h3>PC Full White</h3>
+                    <p>Setup premium totalmente branco.</p>
+                    <span>R$ 5.999,90</span>
+                    <button onclick="adicionar('PC Full White', 5999.90, 'imagens/pc.branco.jpg')">
+                        Comprar
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="mover(1)">❯</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Next Level Studio Tech</p>
+    </footer>
+
+
+
+    <script>
+
+        function finalizarWhats() {
+
+            if (carrinho.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
+
+            let msg = "🛒 Pedido Next Level Studio Tech:%0A%0A";
+
+            carrinho.forEach(item => {
+                msg += `- ${item.nome} x${item.qtd} = R$ ${(item.preco * item.qtd).toFixed(2)}%0A`;
+            });
+
+            let total = carrinho.reduce((s, i) => s + i.preco * i.qtd, 0);
+
+            msg += `%0A💰 Total: R$ ${total.toFixed(2)}`;
+
+            window.open("https://wa.me/5514974009101?text=" + msg);
+        }
+        // ======================
+        // 🛒 CARRINHO GLOBAL
+        // ======================
+
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        let listaCarrinho = document.getElementById("listaCarrinho");
+        let contador = document.getElementById("contador");
+        let carrossel = document.getElementById("carrossel");
+
+        // ➕ adicionar produto
+        function adicionar(nome, preco, imagem) {
+
+            let item = carrinho.find(p => p.nome === nome);
+
+            if (item) {
+                item.qtd++;
+            } else {
+                carrinho.push({
+                    nome,
+                    preco,
+                    qtd: 1,
+                    imagem
+                });
+            }
+
+            salvar();
+            atualizar();
+
+            contador.style.transform = "scale(1.2)";
+            setTimeout(() => contador.style.transform = "scale(1)", 150);
+        }
+
+        // ➖ diminuir
+        function diminuir(nome) {
+
+            let item = carrinho.find(p => p.nome === nome);
+            if (!item) return;
+
+            item.qtd--;
+
+            if (item.qtd <= 0) {
+                carrinho = carrinho.filter(p => p.nome !== nome);
+            }
+
+            salvar();
+            atualizar();
+        }
+
+        // 🗑 remover
+        function remover(nome) {
+            carrinho = carrinho.filter(p => p.nome !== nome);
+            salvar();
+            atualizar();
+        }
+
+        // 💾 salvar
+        function salvar() {
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        }
+
+        // 🔄 atualizar carrinho
+        function atualizar() {
+
+            if (!listaCarrinho || !contador) return;
+
+            listaCarrinho.innerHTML = "";
+
+            let total = 0;
+            let qtdTotal = 0;
+
+            carrinho.forEach(item => {
+
+                let subtotal = item.preco * item.qtd;
+                total += subtotal;
+                qtdTotal += item.qtd;
+
+                let li = document.createElement("li");
+
+                li.innerHTML = `
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px;">
+
+                <img src="${item.imagem}"
+                    style="width:55px; height:55px; object-fit:cover; border-radius:8px;">
+
+                <div>
+                    <strong>${item.nome}</strong><br>
+                    R$ ${item.preco.toFixed(2)}<br>
+
+                    <button onclick="diminuir('${item.nome}')">-</button>
+                    ${item.qtd}
+                    <button onclick="adicionar('${item.nome}', ${item.preco}, '${item.imagem}')">+</button>
+
+                    <button onclick="remover('${item.nome}')">🗑</button>
+
+                    <br>
+                    <small>Subtotal: R$ ${subtotal.toFixed(2)}</small>
+                </div>
+
+            </div>
+        `;
+
+                listaCarrinho.appendChild(li);
+            });
+
+            let totalLi = document.createElement("li");
+            totalLi.innerHTML = `<strong>Total: R$ ${total.toFixed(2)}</strong>`;
+            listaCarrinho.appendChild(totalLi);
+
+            contador.innerText = qtdTotal;
+        }
+
+        // 🧹 limpar
+        function limparCarrinho() {
+            carrinho = [];
+            salvar();
+            atualizar();
+        }
+
+        // ======================
+        // 🔁 CARROSSEL (FIXO)
+        // ======================
+
+        function mover(direcao) {
+            carrossel.scrollBy({
+                left: direcao * 280,
+                behavior: "smooth"
+            });
+        }
+
+        // auto scroll (SEM BUG)
+        setInterval(() => {
+
+            if (!carrossel) return;
+
+            let max = carrossel.scrollWidth - carrossel.clientWidth;
+
+            if (carrossel.scrollLeft >= max) {
+                carrossel.scrollLeft = 0;
+            } else {
+                carrossel.scrollLeft += 280;
+            }
+
+        }, 3000);
+
+        // ======================
+        // 🖱 DRAG (fora do setInterval)
+        // ======================
+
+        let isDown = false;
+        let startX;
+        let scrollStart;
+
+        carrossel.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+            scrollStart = carrossel.scrollLeft;
+        });
+
+        carrossel.addEventListener("mouseleave", () => isDown = false);
+        carrossel.addEventListener("mouseup", () => isDown = false);
+
+        carrossel.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+
+            const x = e.pageX;
+            const walk = (x - startX) * 1.5;
+
+            carrossel.scrollLeft = scrollStart - walk;
+        });
+
+        // iniciar
+        atualizar();
+
+    </script>
+
+</body>
+
+</html>

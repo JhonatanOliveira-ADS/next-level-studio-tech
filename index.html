@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Level Studio Tech</title>
+    <link rel="stylesheet" href="informatica.css">
+</head>
+
+<body>
+
+    <!-- TOPO -->
+    <header>
+
+        <div class="top-bar">
+            Next Level Studio Tech
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="Monteseusetup.html">Monte seu Setup</a>
+            <a href="Servicos.html">Serviços</a>
+        </nav>
+
+        <div class="usuario">
+
+            <a href="login.html">🔐 Entrar</a>
+            <a href="cadastrar.html">🧾 Criar Conta</a>
+
+            <a href="carrinho.html">
+                🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- SUBTÍTULO -->
+    <div class="subtitulo">
+        Escolha seu produto, que entregamos para você!
+    </div>
+
+    <!-- BANNER -->
+    <section class="banner">
+        <h1>🔥 Promoções Gamer da Semana 🔥</h1>
+        <p>Descontos especiais em computadores, monitores e periféricos.</p>
+    </section>
+
+    <!-- PRODUTOS -->
+    <main class="espaco">
+
+        <div class="produtos">
+
+            <div class="produto-catalogo">
+                <img src="imagens/tecladomecanico.jpg">
+                <h2>Teclado Mecânico RGB</h2>
+                <p>R$ 299,90</p>
+
+                <button onclick="adicionarCarrinho('Teclado RGB', 299.90, 'imagens/tecladomecanico.jpg')"> Comprar
+                </button>
+            </div>
+
+            <div class="produto-catalogo">
+                <img src="imagens/mouse.logitech.jpg">
+                <h2>Mouse Gamer</h2>
+                <p>R$ 149,90</p>
+
+                <button onclick="adicionarCarrinho('Mouse Gamer', 149.90, 'imagens/mouse.logitech.jpg')"> Comprar
+                </button>
+            </div>
+
+            <div class="produto-catalogo">
+                <img src="imagens/monitor_game.jpg">
+                <h2>Monitor Gamer</h2>
+                <p>R$ 1299,90</p>
+
+                <button onclick="adicionarCarrinho('Monitor Gamer', 1299.90, 'imagens/monitor_game.jpg')"> Comprar
+                </button>
+            </div>
+
+            <div class="produto-catalogo">
+                <img src="imagens/logo.jpg">
+                <h2>Monte seu Setup</h2>
+                <p>Personalize seu computador</p>
+
+                <button onclick="location.href='Monteseusetup.html'">
+                    Orçamento
+                </button>
+            </div>
+
+            <div class="produto-catalogo">
+                <img src="imagens/pc.branco.jpg">
+                <h2>PC Full White</h2>
+                <p>R$ 5.999,90</p>
+
+                <button onclick="adicionarCarrinho('PC White', 5999.90, 'imagens/pc.branco.jpg')"> Comprar
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- SERVIÇOS -->
+    <section class="servicos">
+
+        <h2>Nossos Serviços</h2>
+
+        <div class="card-servico">
+            <h3>Montagem de Computadores</h3>
+            <p>Montamos seu PC de acordo com sua necessidade.</p>
+        </div>
+
+        <div class="card-servico">
+            <h3>Suporte Técnico</h3>
+            <p>Formatação, manutenção e upgrades.</p>
+        </div>
+
+        <div class="card-servico">
+            <h3>Consultoria Gamer</h3>
+            <p>Ajudamos a montar o setup ideal.</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER MELHORADO -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>Next Level Studio Tech</h3>
+                <p>Especialistas em hardware, montagem de PCs e soluções gamer de alta performance.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Links Rápidos</h3>
+                <p><a href="index.html">Início</a></p>
+                <p><a href="produtos.html">Produtos</a></p>
+                <p><a href="Servicos.html">Serviços</a></p>
+                <p><a href="Monteseusetup.html">Monte seu Setup</a></p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contato & Redes</h3>
+
+                <p>📲 WhatsApp: (14) 97400-9101</p>
+                <p>📧 suporte@nextleveltech.com</p>
+
+                <p>
+                    📸 Instagram:
+                    <a href="https://instagram.com/nextlevelstudiotech" target="_blank">
+                        @nextlevelstudiotech
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Next Level Studio Tech - Todos os direitos reservados</p>
+        </div>
+
+    </footer>
+
+    <!-- CARRINHO -->
+    <script>
+
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        function adicionarCarrinho(nome, preco, imagem) {
+
+            let item = carrinho.find(p => p.nome === nome);
+
+            if (item) {
+                item.qtd++;
+            } else {
+                carrinho.push({ nome, preco, imagem, qtd: 1 });
+            }
+
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            atualizarContador();
+        }
+
+        function atualizarContador() {
+
+            let total = carrinho.reduce((acc, item) => acc + item.qtd, 0);
+
+            document.getElementById("contadorCarrinho").innerText = total;
+        }
+
+        atualizarContador();
+
+    </script>
+
+</body>
+
+</html>

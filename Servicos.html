@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Next Level Studio Tech</title>
+
+    <link rel="stylesheet" href="informatica.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="top-bar">
+        Next Level Studio Tech - Soluções em TI
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="produtos.html">Produtos</a>
+
+        <a href="Servicos.html">Serviços</a>
+        <a href="carrinho.HTML">Carrinho</a>
+    </nav>
+
+    <!-- 🛒 CARRINHO FIXO -->
+    <div class="painel-carrinho">
+        <h2>🛒 Carrinho</h2>
+
+        <ul id="listaCarrinho"></ul>
+
+        <button onclick="limparCarrinho()">Limpar Carrinho</button>
+
+        <button onclick="finalizarWhats()"
+            style="margin-top:10px;background:green;color:white;padding:10px;width:100%;">
+            Finalizar no WhatsApp
+        </button>
+
+    </div>
+
+    <div class="carrinho-info">
+        🛒 Itens: <span id="contador">0</span>
+    </div>
+
+    <main>
+
+        <section class="servicos">
+
+            <h1>Soluções Profissionais em Tecnologia</h1>
+            <p>Escolha um serviço e adicione ao carrinho</p>
+
+            <!-- HARDWARE -->
+            <div class="servico-bloco">
+                <h2>💻 Hardware & Manutenção</h2>
+
+                <div class="grid-servicos">
+
+                    <div class="card-servico">
+                        <img src="imagens/limpeza.jpg">
+                        <h3>Limpeza Completa</h3>
+                        <p>Pasta térmica + poeira</p>
+                        <span>R$ 80</span>
+                        <button
+                            onclick="adicionar('Limpeza Completa',80,'imagens/servicos/limpeza.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/upgrade.jpg">
+                        <h3>Upgrade PC</h3>
+                        <p>RAM / SSD / GPU</p>
+                        <span>R$ 120</span>
+                        <button onclick="adicionar('Upgrade PC',120,'imagens/servicos/upgrade.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/montagem.jpg">
+                        <h3>Montagem Gamer</h3>
+                        <p>PC personalizado</p>
+                        <span>R$ 200</span>
+                        <button
+                            onclick="adicionar('Montagem Gamer',200,'imagens/servicos/montagem.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/reparo.jpg">
+                        <h3>Reparo Notebook</h3>
+                        <p>Tela, teclado, placa</p>
+                        <span>Orçamento</span>
+                        <button
+                            onclick="adicionar('Reparo Notebook',0,'imagens/servicos/reparo.jpg')">Adicionar</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SOFTWARE -->
+            <div class="servico-bloco">
+                <h2>💾 Software & Sistemas</h2>
+
+                <div class="grid-servicos">
+
+                    <div class="card-servico">
+                        <img src="imagens/formata.jpg">
+                        <h3>Formatação</h3>
+                        <p>Windows / Linux</p>
+                        <span>R$ 100</span>
+                        <button onclick="adicionar('Formatação',100,'imagens/servicos/formata.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/virus.jpg">
+                        <h3>Remoção de Vírus</h3>
+                        <p>Limpeza total</p>
+                        <span>R$ 100</span>
+                        <button onclick="adicionar('Remoção Vírus',100,'imagens/servicos/virus.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/backup.jpg">
+                        <h3>Backup de Dados</h3>
+                        <p>Recuperação arquivos</p>
+                        <span>R$ 90</span>
+                        <button onclick="adicionar('Backup',90,'imagens/servicos/backup.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/programas.jpg">
+                        <h3>Instalação Programas</h3>
+                        <p>AutoCAD, Revit, SketchUp</p>
+                        <span>R$ 80</span>
+                        <button onclick="adicionar('Programas',80,'imagens/servicos/programas.jpg')">Adicionar</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- REDES -->
+            <div class="servico-bloco">
+                <h2>🌐 Redes & Internet</h2>
+
+                <div class="grid-servicos">
+
+                    <div class="card-servico">
+                        <img src="imagens/wifi.jpg">
+                        <h3>Wi-Fi Profissional</h3>
+                        <p>Otimização sinal</p>
+                        <span>R$ 100</span>
+                        <button onclick="adicionar('WiFi',100,'imagens/servicos/wifi.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/rede.jpg">
+                        <h3>Rede Cabeada</h3>
+                        <p>Instalação completa</p>
+                        <span>R$ 150</span>
+                        <button onclick="adicionar('Rede',150,'imagens/servicos/rede.jpg')">Adicionar</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CORPORATIVO -->
+            <div class="servico-bloco">
+                <h2>🏢 Empresas</h2>
+
+                <div class="grid-servicos">
+
+                    <div class="card-servico">
+                        <img src="imagens/suporte.jpg">
+                        <h3>Suporte TI Mensal</h3>
+                        <p>Manutenção contínua</p>
+                        <span>R$ 250/mês</span>
+                        <button onclick="adicionar('Suporte TI',250,'imagens/suporte.jpg')">Adicionar</button>
+                    </div>
+
+                    <div class="card-servico">
+                        <img src="imagens/servidor.jpg">
+                        <h3>Servidores</h3>
+                        <p>Linux / Windows Server</p>
+                        <span>Orçamento</span>
+                        <button onclick="adicionar('Servidor',0,'imagens/servidor.jpg')">Adicionar</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+    <script>
+
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        // ➕ adicionar (GLOBAL)
+        function adicionar(nome, preco, imagem) {
+
+            let item = carrinho.find(p => p.nome === nome);
+
+            if (item) {
+                item.qtd++;
+            } else {
+                carrinho.push({
+                    nome,
+                    preco,
+                    imagem,
+                    qtd: 1
+                });
+            }
+
+            salvar();
+            atualizar();
+        }
+
+        // 💾 salvar no navegador (ESSENCIAL)
+        function salvar() {
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        }
+
+        // ➖ diminuir
+        function diminuir(nome) {
+
+            let item = carrinho.find(p => p.nome === nome);
+            if (!item) return;
+
+            item.qtd--;
+
+            if (item.qtd <= 0) {
+                carrinho = carrinho.filter(p => p.nome !== nome);
+            }
+
+            salvar();
+            atualizar();
+        }
+
+        // 🗑 remover
+        function remover(nome) {
+            carrinho = carrinho.filter(p => p.nome !== nome);
+            salvar();
+            atualizar();
+        }
+
+        // 🔄 atualizar painel
+        function atualizar() {
+
+            const listaCarrinho = document.getElementById("listaCarrinho");
+            const contador = document.getElementById("contador");
+
+            if (!listaCarrinho || !contador) return;
+
+            listaCarrinho.innerHTML = "";
+
+            let total = 0;
+            let qtdTotal = 0;
+
+            carrinho.forEach(item => {
+
+                let subtotal = item.preco * item.qtd;
+                total += subtotal;
+                qtdTotal += item.qtd;
+
+                listaCarrinho.innerHTML += `
+        <li style="display:flex;gap:10px;align-items:center;margin:10px 0;">
+            <img src="${item.imagem}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
+            <div style="flex:1">
+                <strong>${item.nome}</strong><br>
+                R$ ${item.preco.toFixed(2)}<br>
+
+                <button onclick="diminuir('${item.nome}')">−</button>
+                ${item.qtd}
+                <button onclick="adicionar('${item.nome}',${item.preco},'${item.imagem}')">+</button>
+
+                <button onclick="remover('${item.nome}')">🗑</button>
+
+                <br>
+                <small>Subtotal: R$ ${subtotal.toFixed(2)}</small>
+            </div>
+        </li>`;
+            });
+
+            listaCarrinho.innerHTML += `<li><strong>Total: R$ ${total.toFixed(2)}</strong></li>`;
+
+            contador.innerText = qtdTotal;
+        }
+
+        // 🧹 limpar
+        function limparCarrinho() {
+            carrinho = [];
+            salvar();
+            atualizar();
+        }
+
+        // 📲 WhatsApp
+        function finalizarWhats() {
+
+            if (carrinho.length === 0) {
+                alert("Carrinho vazio!");
+                return;
+            }
+
+            let msg = "🛒 Pedido Next Level Studio Tech:%0A%0A";
+
+            carrinho.forEach(item => {
+                msg += `- ${item.nome} x${item.qtd} = R$ ${(item.preco * item.qtd).toFixed(2)}%0A`;
+            });
+
+            let total = carrinho.reduce((s, i) => s + i.preco * i.qtd, 0);
+
+            msg += `%0A💰 Total: R$ ${total.toFixed(2)}`;
+
+            window.open("https://wa.me/5514974009101?text=" + msg);
+        }
+
+        // iniciar
+        atualizar();
+
+    </script>
+
+</body>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>Next Level Studio Tech</h3>
+            <p>Soluções profissionais em manutenção, software e redes.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Serviços</h3>
+            <p>✔ Manutenção de PCs</p>
+            <p>✔ Formatação</p>
+            <p>✔ Redes e Wi-Fi</p>
+            <p>✔ Suporte Empresarial</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contato</h3>
+            <p>📲 WhatsApp: (14) 97400-9101</p>
+            <p>📧 suporte@nextleveltech.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Next Level Studio Tech - Todos os direitos reservados</p>
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte seu PC Gamer</title>
+
+    <style>
+        /* 🎨 ESTILO GERAL */
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 📦 CONTAINER */
+        .setup {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* 🧱 BOX PRINCIPAL */
+        .setup-box {
+            background: #1a1a1a;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* SELECT */
+        select {
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+        }
+
+        /* BOTÃO */
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ccc;
+        }
+
+        /* RESULTADO */
+        h2 {
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section class="setup">
+
+        <h1>💻 Monte seu PC Gamer</h1>
+        <p>Escolha suas peças e veja o valor final</p>
+
+        <div class="setup-box">
+
+            <!-- CPU -->
+            <label>Processador</label>
+            <select id="cpu">
+                <option value="0">Selecione</option>
+                <option value="900">Xeon E5 2680 V4 - R$ 900</option>
+                <option value="1200">Ryzen 5 5600 - R$ 1200</option>
+                <option value="1800">Ryzen 7 5700X - R$ 1800</option>
+                <option value="2200">Intel i5 13400F - R$ 2200</option>
+                <option value="3200">Intel i7 13700K - R$ 3200</option>
+                <option value="4500">Intel i9 13900K - R$ 4500</option>
+            </select>
+
+            <!-- NVIDIA -->
+            <label>Placa de Vídeo NVIDIA</label>
+            <select id="gpu">
+                <option value="0">Selecione</option>
+                <option value="1500">GTX 1660 Super - R$ 1500</option>
+                <option value="2500">RTX 3060 - R$ 2500</option>
+                <option value="3200">RTX 4060 - R$ 3200</option>
+                <option value="4500">RTX 4070 - R$ 4500</option>
+                <option value="6500">RTX 4080 - R$ 6500</option>
+                <option value="9000">RTX 4090 - R$ 9000</option>
+            </select>
+
+            <!-- AMD GPU -->
+            <label>Placa de Vídeo AMD</label>
+            <select id="gpu_amd">
+                <option value="0">Selecione</option>
+                <option value="2200">RX 6600 - R$ 2200</option>
+                <option value="3000">RX 6700 XT - R$ 3000</option>
+                <option value="4000">RX 6800 - R$ 4000</option>
+                <option value="5500">RX 7800 XT - R$ 5500</option>
+                <option value="7000">RX 7900 XTX - R$ 7000</option>
+            </select>
+
+            <!-- RAM -->
+            <label>Memória RAM</label>
+            <select id="ram">
+                <option value="0">Selecione</option>
+                <option value="300">8GB - R$ 300</option>
+                <option value="500">16GB - R$ 500</option>
+                <option value="900">32GB - R$ 900</option>
+            </select>
+
+            <!-- GABINETE -->
+            <label>Gabinete</label>
+            <select id="gabinete">
+                <option value="0">Selecione</option>
+                <option value="200">Simples - R$ 200</option>
+                <option value="300">RGB Gamer - R$ 300</option>
+                <option value="450">Aquário RGB - R$ 450</option>
+                <option value="600">Mid Tower - R$ 600</option>
+                <option value="800">Full Tower RGB - R$ 800</option>
+                <option value="1000">Lian Li Style - R$ 1000</option>
+                <option value="1500">Ultra Showcase - R$ 1500</option>
+                <option value="2200">Elite Gamer Pro - R$ 2200</option>
+            </select>
+
+            <button onclick="calcular()">Calcular PC</button>
+
+            <h2>Total: R$ <span id="total">0</span></h2>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        function calcular() {
+
+            let cpu = Number(document.getElementById("cpu").value);
+            let gpu = Number(document.getElementById("gpu").value);
+            let gpu_amd = Number(document.getElementById("gpu_amd").value);
+            let ram = Number(document.getElementById("ram").value);
+            let gabinete = Number(document.getElementById("gabinete").value);
+
+            let total = cpu + gpu + gpu_amd + ram + gabinete;
+
+            document.getElementById("total").innerText = total.toFixed(2);
+        }
+
+    </script>
+
+</body>
+
+</html>

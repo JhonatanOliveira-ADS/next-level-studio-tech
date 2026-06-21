@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Next Level Studio Tech</title>
+
+    <link rel="stylesheet" href="informatica.css">
+
+    <style>
+        /* 🛒 layout do carrinho */
+        .carrinho-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .item-carrinho {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .item-carrinho img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h3 {
+            margin: 0;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 2px;
+        }
+
+        .btn-remove {
+            background: red;
+            color: white;
+        }
+
+        .btn-finalizar {
+            background: green;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .total {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="top-bar">
+        Next Level Studio Tech - Carrinho
+    </div>
+
+    <div class="carrinho-container">
+
+        <h2>🛒 Seu Carrinho</h2>
+
+        <div id="lista"></div>
+
+        <div class="total" id="total">Total: R$ 0,00</div>
+
+        <button class="btn btn-finalizar" onclick="finalizarWhats()">
+            Finalizar no WhatsApp
+        </button>
+
+        <button class="btn btn-remove" onclick="limparCarrinho()" style="width:100%; margin-top:10px;">
+            Limpar Carrinho
+        </button>
+
+    </div>
+
+    <script>
+
+        // 🔥 pega carrinho do site
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        function salvar() {
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        }
+
+        // 🔄 renderizar carrinho
+        function renderizar() {
+
+            let lista = document.getElementById("lista");
+            let totalEl = document.getElementById("total");
+
+            lista.innerHTML = "";
+
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+
+                let subtotal = item.preco * item.qtd;
+                total += subtotal;
+
+                lista.innerHTML += `
+        <div class="item-carrinho">
+            <img src="${item.imagem}">
+
+            <div class="item-info">
+                <h3>${item.nome}</h3>
+                <p>R$ ${item.preco.toFixed(2)}</p>
+
+                <div>
+                    <button onclick="diminuir(${index})">-</button>
+                    ${item.qtd}
+                    <button onclick="aumentar(${index})">+</button>
+                </div>
+
+                <small>Subtotal: R$ ${subtotal.toFixed(2)}</small>
+            </div>
+
+            <button class="btn btn-remove" onclick="remover(${index})">X</button>
+        </div>
+        `;
+            });
+
+            totalEl.innerText = "Total: R$ " + total.toFixed(2);
+
+            salvar();
+        }
+
+        // ➕ aumentar
+        function aumentar(i) {
+            carrinho[i].qtd++;
+            renderizar();
+        }
+
+        // ➖ diminuir
+        function diminuir(i) {
+            carrinho[i].qtd--;
+
+            if (carrinho[i].qtd <= 0) {
+                carrinho.splice(i, 1);
+            }
+
+            renderizar();
+        }
+
+        // ❌ remover
+        function remover(i) {
+            carrinho.splice(i, 1);
+            renderizar();
+        }
+
+        // 🧹 limpar
+        function limparCarrinho() {
+            carrinho = [];
+            renderizar();
+        }
+
+        // 📲 WhatsApp
+        function finalizarWhats() {
+
+            if (carrinho.length === 0) {
+                alert("Carrinho vazio!");
+                return;
+            }
+
+            let msg = "🛒 Pedido Next Level Studio Tech:%0A%0A";
+
+            let total = 0;
+
+            carrinho.forEach(item => {
+                let subtotal = item.preco * item.qtd;
+                total += subtotal;
+
+                msg += `- ${item.nome} x${item.qtd} = R$ ${subtotal.toFixed(2)}%0A`;
+            });
+
+            msg += `%0A💰 Total: R$ ${total.toFixed(2)}`;
+
+            window.open("https://wa.me/5514974009101?text=" + msg);
+        }
+
+        // iniciar
+        renderizar();
+
+    </script>
+
+</body>
+
+</html>

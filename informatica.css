@@ -816,3 +816,13 @@ RESPONSIVO
     }
 
 }
+@media (max-width: 768px) {
+
+    .carrinho {
+        width: 95%;
+        max-height: 50vh;
+        overflow-y: auto;
+        margin: auto;
+    }
+
+}

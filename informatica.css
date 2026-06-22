@@ -881,3 +881,23 @@ BOTÕES CARROSSEL (BONITOS GAMER)
 .btn-carrossel:active {
     transform: scale(0.95);
 }
+/* =========================
+BORDA GLOBAL DOS CARDS
+========================= */
+
+.produto-card,
+.card-servico,
+.produto-catalogo {
+    border: 2px solid rgba(106, 13, 173, 0.35); /* roxo gamer suave */
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+/* efeito hover mais vivo */
+.produto-card:hover,
+.card-servico:hover,
+.produto-catalogo:hover {
+    border-color: #00ff88;
+    box-shadow: 0 0 18px rgba(0, 255, 136, 0.25);
+    transform: translateY(-5px);
+}

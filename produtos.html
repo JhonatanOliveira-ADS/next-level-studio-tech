@@ -491,6 +491,26 @@
             } else {
                 carrossel.scrollLeft += 280;
             }
+setInterval(() => {
+
+
+const carrosselServicos =
+    document.getElementById("carrosselServicos");
+
+if (!carrosselServicos) return;
+
+let max =
+    carrosselServicos.scrollWidth -
+    carrosselServicos.clientWidth;
+
+if (carrosselServicos.scrollLeft >= max) {
+    carrosselServicos.scrollLeft = 0;
+} else {
+    carrosselServicos.scrollLeft += 280;
+}
+
+
+}, 3500);
 
         }, 3000);
 

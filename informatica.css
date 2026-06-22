@@ -847,3 +847,39 @@ RESPONSIVO
         margin-bottom: 15px;
     }
 }
+/* =========================
+   BOTÕES DE TODOS CARROSSEIS
+   (SEM MEXER NO "COMPRAR")
+========================= */
+
+button[onclick*="mover"],
+button[onclick*="moverCarrossel"],
+button[onclick*="moverServicos"] {
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.25s;
+    backdrop-filter: blur(6px);
+}
+
+/* hover gamer neon */
+button[onclick*="mover"]:hover,
+button[onclick*="moverCarrossel"]:hover,
+button[onclick*="moverServicos"]:hover {
+    background: #00ff88;
+    color: black;
+    transform: scale(1.12);
+    box-shadow: 0 0 14px #00ff88;
+}
+
+/* clique */
+button[onclick*="mover"]:active,
+button[onclick*="moverCarrossel"]:active,
+button[onclick*="moverServicos"]:active {
+    transform: scale(0.95);
+}

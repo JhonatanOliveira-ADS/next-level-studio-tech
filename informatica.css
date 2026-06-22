@@ -848,38 +848,36 @@ RESPONSIVO
     }
 }
 /* =========================
-   BOTÕES DE TODOS CARROSSEIS
-   (SEM MEXER NO "COMPRAR")
+BOTÕES CARROSSEL (BONITOS GAMER)
 ========================= */
 
-button[onclick*="mover"],
-button[onclick*="moverCarrossel"],
-button[onclick*="moverServicos"] {
+.btn-carrossel {
     background: rgba(0, 0, 0, 0.65);
     color: white;
-    border: 1px solid rgba(255,255,255,0.15);
-    width: 45px;
-    height: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    font-size: 20px;
+
+    font-size: 22px;
+    font-weight: bold;
+
     cursor: pointer;
-    transition: 0.25s;
-    backdrop-filter: blur(6px);
+
+    transition: 0.25s ease;
+    backdrop-filter: blur(8px);
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* hover gamer neon */
-button[onclick*="mover"]:hover,
-button[onclick*="moverCarrossel"]:hover,
-button[onclick*="moverServicos"]:hover {
+.btn-carrossel:hover {
     background: #00ff88;
     color: black;
     transform: scale(1.12);
-    box-shadow: 0 0 14px #00ff88;
+    box-shadow: 0 0 18px #00ff88;
 }
 
-/* clique */
-button[onclick*="mover"]:active,
-button[onclick*="moverCarrossel"]:active,
-button[onclick*="moverServicos"]:active {
+.btn-carrossel:active {
     transform: scale(0.95);
 }
